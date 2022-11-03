@@ -1,0 +1,30 @@
+<ul >
+  {{#events}}
+    <li>
+        <h2>{{ title }}</h2>
+        <!-- <body>
+            <div>
+                Date Added {{datetime_added}} </br>
+                {{ description }} </br>
+                Location: {{ location }} </br>
+                Likes: {{ likes }} </br>
+                Comments:  
+            </div>
+        </body> -->
+        <p>Date Added {{datetime_added}}</p>
+        <p>{{ description }}</p>
+        <p>Location: {{ location }}</p>
+        <p>Likes: {{ likes }}
+        
+        <form method="POST" action="/event/like">
+        <input type="hidden" value="{{id}}" name="id">
+        <input type="submit" value="Like">
+        </form>
+        <form method="POST" action="/event/unlike">
+        <input type="hidden" value="{{id}}" name="id">
+        <input type="submit" value="UN-Like">
+        </form>
+        </p>
+    </li>
+  {{/events}}
+</ul>
